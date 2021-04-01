@@ -1,0 +1,32 @@
+PROGRAM testArray;
+
+VAR arr : ARRAY (.10.) OF INTEGER;
+    I : INTEGER;
+    J : INTEGER;
+    min : INTEGER;
+    isTheSame : INTEGER;
+
+BEGIN
+  FOR I := 0 TO 9 DO
+    BEGIN
+      arr(.I.) := I;
+    END;
+
+  min := arr(.0.);
+  FOR I := 0 TO 9 DO
+    BEGIN
+      IF arr(.I.) < min THEN min := arr(.I.);
+    END;
+  CALL WRITEI(min);
+  
+
+  isTheSame := 0;
+  FOR I := 0 TO 8 DO
+    BEGIN
+      FOR J := I + 1 TO 9 DO
+        IF arr(.J.) = arr(.I.) THEN isTheSame := 1;
+    END;
+
+  CALL WRITELN;
+  CALL WRITEI(isTheSame);
+END.
